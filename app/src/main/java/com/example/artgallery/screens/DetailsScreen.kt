@@ -25,7 +25,7 @@ fun DetailsScreen(viewModel: MainViewModel, itemId: String) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 24.dp, horizontal = 8.dp)
+            .padding(vertical = 24.dp, horizontal = 1.dp)
     ) {
         LazyColumn {
             item {
@@ -36,19 +36,19 @@ fun DetailsScreen(viewModel: MainViewModel, itemId: String) {
                     Image(
                         painter = rememberAsyncImagePainter(currentItem?.image?.medium),
                         contentDescription = "",
-                        modifier = Modifier.size(512.dp)
+                        modifier = Modifier.size(400.dp)
                     )
                     Text(
                         text = currentItem?.name?: "",
                         fontWeight = FontWeight.Bold,
                         fontSize = 32.sp,
-                        modifier = Modifier.padding(16.dp)
+                        modifier = Modifier.padding(10.dp)
                     )
                     Row(
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(1.dp)
                     ) {
                         Text(
-                            text = "Rating: ",
+                            text = "Рейтинг: ",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                         )
@@ -59,20 +59,35 @@ fun DetailsScreen(viewModel: MainViewModel, itemId: String) {
                         )
                     }
                     Row(
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(1.dp)
                     ) {
                         Text(
-                            text = "Genre: ",
+                            text = "Жанр: ",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                         )
                         currentItem?.genres?.take(2)?.forEach {
                             Text(
-                                text = "[$it] ",
+                                text = "$it ",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 18.sp,
                             )
                         }
+                    }
+                    Row(
+                        modifier = Modifier.padding(1.dp)
+                    ) {
+                        Text(
+                            text = "Язык озвучки: ",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                        )
+                        Text(
+                            text = currentItem?.language.toString(),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                        )
+
                     }
                     HtmlText(
                         html = currentItem?.summary?: "",

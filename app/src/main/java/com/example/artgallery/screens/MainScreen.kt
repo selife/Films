@@ -42,9 +42,9 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel) {
 @Composable
 fun ArtCard(item: Movies, navController: NavController) {
     Card(
-        elevation = 4.dp,
+        elevation = 100.dp,
         modifier = Modifier
-            .padding(top = 8.dp)
+            .padding(top = 5.dp)
             .clickable {
                 navController.navigate(Screens.Details.route + "/${item.id}")
             }
@@ -52,7 +52,7 @@ fun ArtCard(item: Movies, navController: NavController) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 16.dp)
+                .padding(vertical = 1.dp)
         ) {
             Image(
                 painter = rememberAsyncImagePainter(item.image.medium),
@@ -67,14 +67,14 @@ fun ArtCard(item: Movies, navController: NavController) {
                 )
                 Row {
                     Text(
-                        text = "Rating: ",
+                        text = "Рейтинг: ",
                         fontWeight = FontWeight.Bold
                     )
                     Text(text = item.rating.average.toString())
                 }
                 Row {
                     Text(
-                        text = "Genre: ",
+                        text = "Жанр: ",
                         fontWeight = FontWeight.Bold
                     )
                      item.genres.take(2).forEach { Text(text = " $it")}
@@ -82,7 +82,7 @@ fun ArtCard(item: Movies, navController: NavController) {
                 }
                 Row {
                     Text(
-                        text = "Premiered: ",
+                        text = "Премьера: ",
                         fontWeight = FontWeight.Bold
                     )
                     Text(text = item.premiered)

@@ -35,7 +35,7 @@ fun SplashScreen(navController: NavController, viewModel: MainViewModel) {
         delay(4000)
         navController.navigate(Screens.Main.route)
     }
-    Splash(alpha = alphaAnimation.value)
+        //Splash(alpha = alphaAnimation.value)
 }
 
 @Composable
