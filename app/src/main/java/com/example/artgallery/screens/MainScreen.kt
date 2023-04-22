@@ -1,5 +1,6 @@
 package com.example.artgallery.screens
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,6 +23,7 @@ import com.example.artgallery.navigation.Screens
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: MainViewModel) {
+    viewModel.getAllArts()
     val allArts = viewModel.allArts.observeAsState(listOf()).value
     Surface(
         modifier = Modifier
