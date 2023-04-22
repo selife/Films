@@ -10,6 +10,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -23,7 +24,9 @@ import com.example.artgallery.navigation.Screens
 
 @Composable
 fun MainScreen(navController: NavController, viewModel: MainViewModel) {
-    viewModel.getAllArts()
+    LaunchedEffect(key1=true) {
+        viewModel.getAllArts()
+    }
     val allArts = viewModel.allArts.observeAsState(listOf()).value
     Surface(
         modifier = Modifier
